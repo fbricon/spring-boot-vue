@@ -1,0 +1,48 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "todo-model",
+                "projectName": "todo-model",
+                "workingDirectory": "/Users/fbricon/Dev/demos/spring-boot-vue/todo-model",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            },
+            {
+                "name": "todo-app",
+                "projectName": "todo-app",
+                "workingDirectory": "/Users/fbricon/Dev/demos/spring-boot-vue/todo-app",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "todo-model",
+                "projectName": "todo-model",
+                "workingDirectory": "/Users/fbricon/Dev/demos/spring-boot-vue/todo-model",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            },
+            {
+                "name": "todo-app",
+                "projectName": "todo-app",
+                "workingDirectory": "/Users/fbricon/Dev/demos/spring-boot-vue/todo-app",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}

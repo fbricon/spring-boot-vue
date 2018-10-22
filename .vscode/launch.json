@@ -7,10 +7,9 @@
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "stopOnEntry": false,
-            "vmArgs": "-noverify -XX:TieredStopAtLevel=1",
             "mainClass": "com.redhat.vscode.demo.TodoApplication",
             "args": "",
-            "projectName": "spring-boot-vue"
+            "projectName": "todo-app"
         }
     ]
 }

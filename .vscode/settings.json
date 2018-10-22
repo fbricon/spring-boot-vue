@@ -1,4 +1,11 @@
 {
+    "[xml]":{
+        "editor.formatOnSave": false,
+        "editor.trimAutoWhitespace": true,
+        "editor.autoClosingBrackets": "never"
+    },
+    "xml.trace.server": "messages",
+    
     "[java]":{
         "editor.formatOnType": true,
         "editor.formatOnSave": false,
@@ -7,14 +14,9 @@
         "editor.tabSize": 4,
         "editor.trimAutoWhitespace": true,
     },
-    "[xml]":{
-        "editor.formatOnSave": false,
-        "editor.trimAutoWhitespace": true,
-    },
-    "editor.autoClosingBrackets": "always",
-    "xml.trace.server": "messages",
     "java.saveActions.organizeImports": false,
     "java.referencesCodeLens.enabled": true,
     "java.implementationsCodeLens.enabled": false,
     "java.trace.server": "verbose",
+    "java.configuration.updateBuildConfiguration": "interactive",
 }
