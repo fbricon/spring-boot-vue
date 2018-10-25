@@ -14,6 +14,16 @@
         "editor.tabSize": 4,
         "editor.trimAutoWhitespace": true,
     },
+    // "files.exclude": {
+    //     "**/.git": true,
+    //     "**/.project": true,
+    //     "**/.classpath": true,
+    //     "**/.settings": true,
+    //     "**/.DS_Store": true,
+    //     "**/target/classes":true,
+    //     "**/target/test-classes":true
+    // },
+
     "java.saveActions.organizeImports": false,
     "java.referencesCodeLens.enabled": false,
     "java.implementationsCodeLens.enabled": false,
