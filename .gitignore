@@ -13,6 +13,10 @@ tmp/
 local.properties
 .loadpath
 .recommenders
+.settings
+.classpath
+.project
+.factorypath
 
 # External tool builders
 .externalToolBuilders/
