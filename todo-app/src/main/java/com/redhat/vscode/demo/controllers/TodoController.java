@@ -1,26 +1,24 @@
 package com.redhat.vscode.demo.controllers;
 
 import static com.redhat.vscode.demo.model.TodoHelper.enhanceTodo;
+
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import com.redhat.vscode.demo.model.Todo;
 import com.redhat.vscode.demo.repositories.TodoRepository;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Todo Controller
@@ -29,29 +27,37 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class TodoController {
 
+    private static Logger LOG = LoggerFactory.getLogger(TodoController.class);
+
     @Autowired
     private TodoRepository repository;
 
     @GetMapping("/todos")
     public List<Todo> getTodos() {
-        return repository.findAll();
+        List<Todo> todos = repository.findAll();
+        for (Todo t : todos) {
+            t.toString();
+        }
+        return todos;
     }
 
     @GetMapping(value = "/todos/{id}")
     public ResponseEntity<Todo> getTodo(@PathVariable("id") String id) {
-        return repository.findById(id).map(t -> ResponseEntity.ok(t)).orElse(ResponseEntity.notFound().build());
+        Optional<Todo> res = repository.findById(id);
+        return res.map(t -> ResponseEntity.ok(t))
+                  .orElse(ResponseEntity.notFound().build());
     }
 
     @PutMapping(value = "/todos/{id}")
     public ResponseEntity<Todo> updateTodo(@PathVariable("id") String id, @Valid @RequestBody Todo todo) {
         Optional<Todo> existing = repository.findById(id);
-        if (!existing.isPresent() ) {
+        if (!existing.isPresent()) {
             return ResponseEntity.notFound().build();
         }
         todo.setId(id);
         repository.save(todo);
         return ResponseEntity.noContent().build();
-        //return ResponseEntity.ok(todo);
+        // return ResponseEntity.ok(todo);
     }
 
     @DeleteMapping(value = "/todos/{id}")
@@ -64,7 +70,7 @@ public class TodoController {
 
     @DeleteMapping(value = "/todos/purge")
     public ResponseEntity<Object> deleteCompleted() {
-        List<Todo> completed = repository.findAll(Example.of( new Todo(null, true)));
+        List<Todo> completed = repository.findAll(Example.of(new Todo(null, true)));
         if (!completed.isEmpty()) {
             repository.deleteAll(completed);
         }
@@ -78,8 +84,9 @@ public class TodoController {
     }
 
     @GetMapping("/reset")
-    public List<Todo> resetTodos(HttpServletResponse response){
-        return repository.resetData();
+    public void resetTodos(HttpServletResponse response) throws IOException {
+        repository.resetData();
+        response.sendRedirect("/");
     }
 
     @PostMapping("/todos")

@@ -12,8 +12,8 @@ public class Todo {
     private boolean completed;
 
     public Todo(String string, boolean b) {
-        this.title = string;
-        this.completed = b;
+        this.setTitle(string);
+        this.setCompleted(b);
     }
 
     public Todo() {
@@ -24,6 +24,46 @@ public class Todo {
         this(title, false);
     }
 
+    @Override
+    public String toString() {
+        return "Todo[id:"+id+", title:"+title+", completed:"+completed+"]";
+    }
+
+    @Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (completed ? 1231 : 1237);
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		return result;
+	}
+
+	@Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Todo other = (Todo) obj;
+        if (completed != other.completed)
+            return false;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        if (title == null) {
+            if (other.title != null)
+                return false;
+        } else if (!title.equals(other.title))
+            return false;
+        return true;
+    }
+    
+
     /**
      * @return the completed
      */
@@ -32,17 +72,10 @@ public class Todo {
     }
 
     /**
-     * @return the id
+     * @param completed the completed to set
      */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(String id) {
-        this.id = id;
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 
     /**
@@ -60,10 +93,16 @@ public class Todo {
     }
 
     /**
-     * @param completed the completed to set
+     * @return the id
      */
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
+    public String getId() {
+        return id;
     }
 
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
 }

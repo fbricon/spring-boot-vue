@@ -15,8 +15,8 @@
         "editor.trimAutoWhitespace": true,
     },
     "java.saveActions.organizeImports": false,
-    "java.referencesCodeLens.enabled": true,
+    "java.referencesCodeLens.enabled": false,
     "java.implementationsCodeLens.enabled": false,
-    "java.trace.server": "verbose",
+    "java.trace.server": "messages",
     "java.configuration.updateBuildConfiguration": "interactive",
 }

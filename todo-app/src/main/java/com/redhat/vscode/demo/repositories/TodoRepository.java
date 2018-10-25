@@ -15,10 +15,10 @@ public interface TodoRepository extends MongoRepository<Todo, String> {
 
     default List<Todo> resetData() {
         deleteAll();
-        save(new Todo("Introduction", true));
-        save(new Todo("Something on the LSP"));
-        save(new Todo("jdt.ls and the ecosystem"));
-        save(new Todo("Demo time!"));
+        save(new Todo("Overview of VSCode and the LSP"));
+        save(new Todo("Talk about Eclipse jdt.ls"));
+        save(new Todo("Talk about vscode-java"));
+        save(new Todo("Demo time"));
         return findAll();
     }
 

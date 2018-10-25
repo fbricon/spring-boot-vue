@@ -1,0 +1,47 @@
+{
+    "commons-collections": {
+        "prefix": "cc321",
+        "scope": "xml",
+        "body": [
+            "<dependency>",
+            "\t<groupId>commons-collections</groupId>",
+            "\t<artifactId>commons-collections</artifactId>",
+            "\t<version>3.2.1</version>",
+            "</dependency>",
+            "$0"
+        ],
+        "description": "commons-collections 3.2.1"
+    },
+    "lombok": {
+        "prefix": "lbk",
+        "scope": "xml",
+        "body": [
+            "<dependency>",
+            "\t<groupId>org.projectlombok</groupId>",
+            "\t<artifactId>lombok</artifactId>",
+            "\t<version>1.18.2</version>",
+            "</dependency>",
+            "$0"
+        ],
+        "description": "lombok 1.8.2"
+    },
+    "logger": {
+        "prefix": "logger",
+        "scope": "java",
+        "body": [
+            "private static Logger LOG = LoggerFactory.getLogger(${TM_FILENAME_BASE}.class);"
+        ],
+        "description": "Loop over a collection of todos to log their status"
+    },
+    "log-todos": {
+        "prefix": "logtodos",
+        "scope": "java",
+        "body": [
+            "if (LOG.isInfoEnabled()) {",
+            "\ttodos.stream().map(Todo::toString).forEach(LOG::info);",
+            "}",
+            "$0"
+        ],
+        "description": "Loop over a collection of todos to log their status"
+    }
+}

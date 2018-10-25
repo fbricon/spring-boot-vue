@@ -7,4 +7,10 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>todo-model</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+    </dependencies>
 </project>
