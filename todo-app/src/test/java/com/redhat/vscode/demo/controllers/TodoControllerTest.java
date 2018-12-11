@@ -84,7 +84,7 @@ public class TodoControllerTest {
     @Test
     public void testGetMissingTodo() throws Exception {
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/api/todos/none")).andReturn();
-        assertEquals(200, mvcResult.getResponse().getStatus());
+        assertEquals(404, mvcResult.getResponse().getStatus());
     }
 
     protected <T> T mapFromJson(String json, Class<T> clazz)

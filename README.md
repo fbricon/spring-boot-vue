@@ -13,9 +13,11 @@ If using VS Code:
 
 
 ### Run from a terminal
-- Execute `./mvnw clean verify spring-boot:run`
-
+From the root directory:
+- Execute `./mvnw install && ./mvnw spring-boot:run -pl todo-app`
+- Open http://localhost:9090
 
 ### Run from VS Code
 - Open https://github.com/fbricon/spring-boot-vue/blob/master/todo-app/src/main/java/com/redhat/vscode/demo/TodoApplication.java#L26
 - click on the `Run` or `Debug` code lens.
+- Open http://localhost:9090
